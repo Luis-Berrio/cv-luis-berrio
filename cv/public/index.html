@@ -1,313 +1,1187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luis Antonio Berrio Luque - Desarrollador Full Stack</title>
-    <link rel="stylesheet" href="cv-styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset y Variables */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-muted: #6b7280;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f9fafb;
+        --bg-accent: #eff6ff;
+        --border-color: #e5e7eb;
+        --border-accent: #bfdbfe;
+        --success-color: #059669;
+        --warning-color: #d97706;
+        --info-color: #0284c7;
+      }
+      body {
+        font-family: "Source Sans Pro", "Segoe UI", sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background-color: #f3f4f6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .cv-container {
+        max-width: 850px;
+        margin: 40px auto;
+        background: var(--bg-primary);
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .cv-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--primary-dark) 100%
+        );
+        color: white;
+        padding: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      .header-main h1 {
+        font-family: "Inter", sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+      }
+      .header-main .title {
+        font-size: 18px;
+        font-weight: 400;
+        opacity: 0.95;
+      }
+      .header-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 13px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0.95;
+      }
+      .contact-item svg {
+        flex-shrink: 0;
+        opacity: 0.9;
+      }
+      .contact-item a {
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: border-color 0.2s;
+      }
+      .contact-item a:hover {
+        border-color: white;
+      }
+      .cv-section {
+        padding: 32px 40px;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .cv-section:last-of-type {
+        border-bottom: none;
+      }
+      .section-title {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--bg-accent);
+      }
+      .section-title svg {
+        color: var(--primary-color);
+      }
+      .profile-text {
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        text-align: justify;
+      }
+      .profile-text strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+      .experience-item {
+        margin-bottom: 28px;
+        padding-bottom: 24px;
+        border-bottom: 1px dashed var(--border-color);
+      }
+      .experience-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .experience-title h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+      .experience-title .company {
+        font-size: 14px;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+      .experience-meta {
+        text-align: right;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .experience-meta .location {
+        display: block;
+        margin-bottom: 2px;
+      }
+      .experience-meta .date {
+        display: block;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+      .experience-meta .modality {
+        display: block;
+        font-size: 11px;
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-top: 2px;
+      }
+      .experience-list {
+        list-style: none;
+        margin: 12px 0;
+      }
+      .experience-list li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 8px;
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--text-secondary);
+      }
+      .experience-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 6px;
+        height: 6px;
+        background: var(--primary-color);
+        border-radius: 50%;
+      }
+      .experience-list li strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .tech-tag {
+        background: var(--bg-accent);
+        color: var(--primary-dark);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+        border: 1px solid var(--border-accent);
+      }
+      .project-item {
+        background: var(--bg-secondary);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .project-header h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .project-date {
+        font-size: 13px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .skill-category h4 {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .skill-tag {
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+      .skill-tag.advanced {
+        background: #dcfce7;
+        color: #166534;
+        border: 1px solid #bbf7d0;
+      }
+      .skill-tag.intermediate {
+        background: #fef3c7;
+        color: #92400e;
+        border: 1px solid #fde68a;
+      }
+      .skill-tag.basic {
+        background: #f3f4f6;
+        color: #4b5563;
+        border: 1px solid #e5e7eb;
+      }
+      .education-item {
+        background: var(--bg-secondary);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid var(--primary-color);
+      }
+      .education-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .education-header h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .education-date {
+        font-size: 13px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .education-item .institution {
+        font-size: 14px;
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .education-item .location {
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .certification-item {
+        background: var(--bg-secondary);
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .certification-item:hover {
+        border-color: var(--border-accent);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+      .certification-item h4 {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 6px;
+      }
+      .certification-item .cert-issuer {
+        font-size: 12px;
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .certification-item .cert-date {
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+      .cv-footer {
+        text-align: center;
+        padding: 20px 40px;
+        background: var(--bg-secondary);
+        border-top: 1px solid var(--border-color);
+      }
+      .cv-footer p {
+        font-size: 12px;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+      .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        transition: all 0.2s;
+      }
+      .print-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+      }
+      @media (max-width: 768px) {
+        .cv-container {
+          margin: 0;
+          border-radius: 0;
+        }
+        .cv-header {
+          padding: 24px;
+          flex-direction: column;
+        }
+        .header-main h1 {
+          font-size: 26px;
+        }
+        .cv-section {
+          padding: 24px;
+        }
+        .experience-header {
+          flex-direction: column;
+        }
+        .experience-meta {
+          text-align: left;
+        }
+        .skills-grid,
+        .certifications-grid {
+          grid-template-columns: 1fr;
+        }
+        .print-btn {
+          bottom: 20px;
+          right: 20px;
+          padding: 10px 16px;
+        }
+        .print-btn span {
+          display: none;
+        }
+      }
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          color-adjust: exact !important;
+        }
+        html,
+        body {
+          background: white !important;
+          font-size: 11pt;
+          margin: 0;
+          padding: 0;
+        }
+        .cv-container {
+          max-width: 100%;
+          margin: 0;
+          box-shadow: none;
+          border-radius: 0;
+        }
+        .cv-header {
+          padding: 30pt 24pt;
+          background: linear-gradient(
+            135deg,
+            #2563eb 0%,
+            #1d4ed8 100%
+          ) !important;
+          color: white !important;
+        }
+        .header-main h1 {
+          color: white !important;
+          font-size: 24pt;
+        }
+        .header-main .title {
+          color: rgba(255, 255, 255, 0.95) !important;
+          font-size: 14pt;
+        }
+        .contact-item {
+          color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .contact-item a {
+          color: white !important;
+        }
+        .contact-item svg {
+          color: white !important;
+        }
+        .cv-section {
+          padding: 18pt 24pt;
+          page-break-inside: avoid;
+          border-bottom: 1px solid #e5e7eb !important;
+        }
+        .section-title {
+          color: #2563eb !important;
+          font-size: 14pt;
+          border-bottom: 2px solid #eff6ff !important;
+        }
+        .section-title svg {
+          color: #2563eb !important;
+        }
+        .experience-item {
+          page-break-inside: avoid;
+          margin-bottom: 18pt;
+          padding-bottom: 16pt;
+          border-bottom: 1px dashed #e5e7eb !important;
+        }
+        .experience-title h3 {
+          font-size: 12pt;
+          color: #1f2937 !important;
+        }
+        .experience-title .company {
+          color: #2563eb !important;
+        }
+        .experience-meta {
+          color: #6b7280 !important;
+        }
+        .experience-meta .date {
+          color: #4b5563 !important;
+        }
+        .experience-list li {
+          font-size: 10pt;
+          color: #4b5563 !important;
+        }
+        .experience-list li::before {
+          background: #2563eb !important;
+        }
+        .experience-list li strong {
+          color: #1f2937 !important;
+        }
+        .tech-tag {
+          background: #eff6ff !important;
+          color: #1d4ed8 !important;
+          border: 1px solid #bfdbfe !important;
+          font-size: 9pt;
+          padding: 3pt 8pt;
+        }
+        .skill-tag.advanced {
+          background: #dcfce7 !important;
+          color: #166534 !important;
+          border: 1px solid #bbf7d0 !important;
+        }
+        .skill-tag.intermediate {
+          background: #fef3c7 !important;
+          color: #92400e !important;
+          border: 1px solid #fde68a !important;
+        }
+        .skill-tag.basic {
+          background: #f3f4f6 !important;
+          color: #4b5563 !important;
+          border: 1px solid #e5e7eb !important;
+        }
+        .skill-tag {
+          font-size: 9pt;
+          padding: 3pt 8pt;
+        }
+        .skills-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16pt;
+        }
+        .skill-category h4 {
+          color: #1f2937 !important;
+          font-size: 11pt;
+        }
+        .education-item {
+          background: #f9fafb !important;
+          border-left: 4px solid #2563eb !important;
+          page-break-inside: avoid;
+        }
+        .education-header h3 {
+          font-size: 12pt;
+          color: #1f2937 !important;
+        }
+        .education-item .institution {
+          color: #2563eb !important;
+        }
+        .education-item .location {
+          color: #6b7280 !important;
+        }
+        .certifications-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12pt;
+        }
+        .certification-item {
+          background: #f9fafb !important;
+          border: 1px solid #e5e7eb !important;
+          page-break-inside: avoid;
+        }
+        .certification-item h4 {
+          font-size: 11pt;
+          color: #1f2937 !important;
+        }
+        .certification-item .cert-issuer {
+          color: #2563eb !important;
+        }
+        .certification-item .cert-date {
+          color: #6b7280 !important;
+        }
+        .project-item {
+          background: #f9fafb !important;
+          border: 1px solid #e5e7eb !important;
+          page-break-inside: avoid;
+        }
+        .project-header h3 {
+          font-size: 12pt;
+          color: #1f2937 !important;
+        }
+        .profile-text {
+          font-size: 10pt;
+          color: #4b5563 !important;
+        }
+        .profile-text strong {
+          color: #1f2937 !important;
+        }
+        .cv-footer {
+          background: #f9fafb !important;
+          border-top: 1px solid #e5e7eb !important;
+        }
+        .cv-footer p {
+          color: #6b7280 !important;
+        }
+        .print-btn {
+          display: none !important;
+        }
+        @page {
+          margin: 0.4in;
+          size: letter;
+        }
+        @page :first {
+          margin-top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <div class="cv-container">
-        <!-- Header -->
-        <header class="cv-header">
-            <div class="header-main">
-                <h1>Luis Antonio Berrio Luque</h1>
-                <p class="title">Desarrollador Full Stack</p>
+      <!-- Header -->
+      <header class="cv-header">
+        <div class="header-main">
+          <h1>Luis Antonio Berrio Luque</h1>
+          <p class="title">Desarrollador Full Stack</p>
+        </div>
+        <div class="header-contact">
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>Bogotá, Colombia (UTC-5)</span>
+          </div>
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            <span>(+57) 305 282 9253</span>
+          </div>
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <a href="mailto:luisberrio99@gmail.com">luisberrio99@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <a href="https://www.linkedin.com/in/luisberriol" target="_blank"
+              >linkedin.com/in/luisberriol</a
+            >
+          </div>
+          <div class="contact-item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+              />
+              <path d="M9 18c-4.51 2-5-2-7-2" />
+            </svg>
+            <a href="https://github.com/Luis-Berrio" target="_blank"
+              >github.com/Luis-Berrio</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <!-- Perfil Profesional -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          Perfil Profesional
+        </h2>
+        <p class="profile-text">
+          Desarrollador Full Stack con <strong>2 años de experiencia</strong> en
+          el diseño, desarrollo e implementación de soluciones web y móviles,
+          incluyendo sistemas multicliente en producción en
+          <strong>9 países de Latinoamérica</strong>. Especializado en
+          front-end con <strong>Angular</strong> y <strong>React</strong>, y
+          back-end con <strong>Spring Boot</strong> y
+          <strong>Node.js</strong>. Experiencia en migración de sistemas legacy
+          a plataformas web modernas, desarrollo de APIs RESTful, optimización
+          de bases de datos <strong>SQL Server</strong> (procedimientos
+          almacenados y transacciones en lote) y contenedorización con Docker.
+          Orientado a las buenas prácticas de desarrollo, código limpio y
+          entrega continua de valor al usuario final.
+        </p>
+      </section>
+
+      <!-- Experiencia Profesional -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+          Experiencia Profesional
+        </h2>
+
+        <!-- Woden Colombia -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">
+              <h3>Desarrollador Full Stack</h3>
+              <span class="company">Woden Colombia</span>
             </div>
-            <div class="header-contact">
-                <div class="contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span>Bogotá, Colombia (UTC-5)</span>
-                </div>
-                <div class="contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span>(+57) 305 282 9253</span>
-                </div>
-                <div class="contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                    <a href="mailto:luisberrio99@gmail.com">luisberrio99@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                    <a href="https://www.linkedin.com/in/luisberriol" target="_blank">linkedin.com/in/luisberriol</a>
-                </div>
+            <div class="experience-meta">
+              <span class="location">Bogotá, Colombia</span>
+              <span class="date">Enero 2025 - Septiembre 2026</span>
+              <span class="modality">Híbrido</span>
             </div>
-        </header>
+          </div>
+          <ul class="experience-list">
+            <li>
+              Desarrollo y mantenimiento del <strong>WMS</strong> (Warehouse
+              Management System) de la compañía, utilizado en
+              <strong>9 países de Latinoamérica</strong>, con
+              <strong>Angular 19</strong> en el front-end,
+              <strong>Spring Boot 3</strong> en el back-end y
+              <strong>SQL Server</strong> como motor de base de datos.
+            </li>
+            <li>
+              Implementación de <strong>arquitectura multi-tenant</strong> con
+              enrutamiento dinámico de base de datos por cliente a partir de
+              los claims del token <strong>JWT</strong>, permitiendo operar
+              múltiples clientes sobre una misma aplicación.
+            </li>
+            <li>
+              Optimización del guardado masivo reemplazando operaciones fila a
+              fila por <strong>procedimientos almacenados en lote</strong>
+              (JSON + OPENJSON en una sola transacción), eliminando deadlocks y
+              reduciendo los tiempos de respuesta de los procesos operativos.
+            </li>
+            <li>
+              Implementación de pruebas end-to-end con
+              <strong>Playwright</strong> para validar los flujos críticos del
+              front-end.
+            </li>
+            <li>
+              Desarrollo de aplicación móvil nativa en
+              <strong>Kotlin</strong> con escaneo OCR para la captura
+              automatizada de información de equipos, integrada con servicios
+              REST para procesamiento en tiempo real.
+            </li>
+            <li>
+              Automatización de procesos operativos mediante scripts en
+              <strong>Python</strong> para validaciones masivas y generación de
+              reportes, reduciendo tiempos de ejecución manual.
+            </li>
+            <li>
+              Gestión y resolución de incidencias técnicas a través de
+              <strong>Freshdesk</strong>, brindando soporte a usuarios internos
+              y externos en múltiples países.
+            </li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Angular 19</span>
+            <span class="tech-tag">Spring Boot 3</span>
+            <span class="tech-tag">SQL Server</span>
+            <span class="tech-tag">JWT</span>
+            <span class="tech-tag">Playwright</span>
+            <span class="tech-tag">Kotlin</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">REST API</span>
+          </div>
+        </div>
 
-        <!-- Perfil Profesional -->
-        <section class="cv-section">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Perfil Profesional
-            </h2>
-            <p class="profile-text">
-                Desarrollador Full Stack con más de 1.5 años de experiencia en el diseño, desarrollo e implementación de soluciones web y móviles de alto impacto. Especializado en arquitecturas front-end con <strong>Angular</strong> y <strong>React</strong>, y back-end con <strong>Node.js</strong>, <strong>Spring Boot</strong> y <strong>Django</strong>. Experiencia comprobada en migración de sistemas legacy, desarrollo de APIs RESTful, integración de bases de datos relacionales y NoSQL, y contenedorización con Docker. Comprometido con las mejores prácticas de desarrollo, código limpio y soluciones centradas en el usuario.
-            </p>
-        </section>
-
-        <!-- Experiencia Profesional -->
-        <section class="cv-section">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                Experiencia Profesional
-            </h2>
-
-            <!-- Woden Colombia -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="experience-title">
-                        <h3>Desarrollador Full Stack Jr.</h3>
-                        <span class="company">Woden Colombia</span>
-                    </div>
-                    <div class="experience-meta">
-                        <span class="location">Bogota, Colombia</span>
-                        <span class="date">Enero 2025 - Actualidad</span>
-                    </div>
-                </div>
-                <ul class="experience-list">
-                    <li>Lideré la migración completa de un sistema de gestión de equipos de escritorio (Java) a plataforma web, impactando operaciones en <strong>8 países</strong>. Implementé arquitectura front-end con Angular y back-end con Spring Boot, comunicación via API REST y persistencia en SQL Server.</li>
-                    <li>Desarrollé aplicación móvil nativa en <strong>Kotlin</strong> con funcionalidad de escaneo OCR, integrando servicios REST con Spring Boot para procesamiento de datos en tiempo real.</li>
-                    <li>Optimicé procesos operativos mediante la automatización de tareas recurrentes utilizando <strong>Python</strong>, reduciendo tiempos de ejecución manual.</li>
-                    <li>Gestioné y resolví incidencias técnicas a través de <strong>Freshdesk</strong>, manteniendo altos niveles de satisfacción del cliente.</li>
-                    <li>Propuse e implementé soluciones innovadoras para optimizar los flujos de trabajo en la gestión de equipos tecnológicos.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Angular</span>
-                    <span class="tech-tag">Spring Boot</span>
-                    <span class="tech-tag">Kotlin</span>
-                    <span class="tech-tag">SQL Server</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">REST API</span>
-                </div>
+        <!-- Sofactia -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">
+              <h3>Desarrollador Front-end</h3>
+              <span class="company">Sofactia</span>
             </div>
-
-            <!-- Sofactia -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="experience-title">
-                        <h3>Desarrollador Front-end</h3>
-                        <span class="company">Sofactia</span>
-                    </div>
-                    <div class="experience-meta">
-                        <span class="location">Remoto - Bogota, Colombia</span>
-                        <span class="date">Noviembre 2024 - Marzo 2025</span>
-                    </div>
-                </div>
-                <ul class="experience-list">
-                    <li>Diseñé y desarrollé módulos de capacitación interactivos para plataformas empresariales de e-learning, incluyendo actividades gamificadas, evaluaciones dinámicas y contenido multimedia.</li>
-                    <li>Implementé metodología <strong>Scrum</strong> para la gestión de sprints, asegurando entregas incrementales y cumplimiento de deadlines.</li>
-                    <li>Ejecuté el despliegue y empaquetado de contenidos educativos bajo el estándar <strong>SCORM</strong>, garantizando compatibilidad con LMS empresariales.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">SCORM</span>
-                    <span class="tech-tag">Scrum</span>
-                </div>
+            <div class="experience-meta">
+              <span class="location">Bogotá, Colombia</span>
+              <span class="date">Noviembre 2024 - Marzo 2025</span>
+              <span class="modality">Remoto - Freelance</span>
             </div>
+          </div>
+          <ul class="experience-list">
+            <li>
+              Diseño y desarrollo de módulos de capacitación interactivos para
+              plataformas empresariales de e-learning, incluyendo actividades
+              gamificadas, evaluaciones dinámicas y contenido multimedia con
+              <strong>React</strong>.
+            </li>
+            <li>
+              Participación activa en metodología <strong>Scrum</strong> para la
+              gestión de sprints, asegurando entregas incrementales y
+              cumplimiento de plazos establecidos.
+            </li>
+            <li>
+              Despliegue y empaquetado de contenidos educativos bajo el estándar
+              <strong>SCORM</strong>, garantizando compatibilidad con LMS
+              empresariales.
+            </li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">SCORM</span>
+            <span class="tech-tag">Scrum</span>
+          </div>
+        </div>
 
-            <!-- Emdupar -->
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="experience-title">
-                        <h3>Desarrollador Full Stack Jr.</h3>
-                        <span class="company">Emdupar E.S.P.</span>
-                    </div>
-                    <div class="experience-meta">
-                        <span class="location">Valledupar, Colombia</span>
-                        <span class="date">Agosto 2024 - Diciembre 2024</span>
-                    </div>
-                </div>
-                <ul class="experience-list">
-                    <li>Arquitecté y desarrollé una plataforma web integral para la gestión documental del <strong>Sistema de Gestión de Calidad (SGC)</strong>, optimizando la organización, trazabilidad y acceso a documentación crítica.</li>
-                    <li>Implementé sistema de <strong>control de acceso basado en roles (RBAC)</strong>, segmentando permisos por proceso y garantizando que cada responsable tuviera control exclusivo sobre su área.</li>
-                    <li>Desarrollé funcionalidades de carga, descarga y consulta de documentos en formatos <strong>Excel y Word</strong>, agilizando la gestión documental para usuarios no técnicos.</li>
-                    <li>Configuré e implementé infraestructura de <strong>red LAN</strong> para el despliegue del aplicativo web en el entorno corporativo.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Angular 17</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Spring Boot</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
+        <!-- Emdupar -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">
+              <h3>Pasante de Desarrollo Full Stack</h3>
+              <span class="company">Emdupar E.S.P.</span>
             </div>
-        </section>
-
-        <!-- Proyectos Destacados -->
-        <section class="cv-section">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                Proyectos Destacados
-            </h2>
-
-            <div class="project-item">
-                <div class="project-header">
-                    <h3>Sistema de Reservas de Eventos</h3>
-                    <span class="project-date">2024</span>
-                </div>
-                <ul class="experience-list">
-                    <li>Diseñé y desarrollé una plataforma web completa para gestión de reservas de eventos, con registro de usuarios, reservación de espacios y administración de inscripciones.</li>
-                    <li>Implementé arquitectura de <strong>microservicios con .NET</strong>, garantizando escalabilidad, mantenibilidad y desacoplamiento de componentes.</li>
-                    <li>Integré <strong>Apache Kafka</strong> para sistema de notificaciones en tiempo real, mejorando la experiencia del usuario con alertas y recordatorios automatizados.</li>
-                    <li>Diseñé y optimicé modelo de base de datos relacional en <strong>SQL Server</strong>, asegurando integridad referencial y rendimiento en transacciones concurrentes.</li>
-                </ul>
-                <div class="tech-stack">
-                    <span class="tech-tag">Angular 17</span>
-                    <span class="tech-tag">.NET</span>
-                    <span class="tech-tag">Microservicios</span>
-                    <span class="tech-tag">Kafka</span>
-                    <span class="tech-tag">SQL Server</span>
-                    <span class="tech-tag">BitBucket</span>
-                </div>
+            <div class="experience-meta">
+              <span class="location">Valledupar, Colombia</span>
+              <span class="date">Agosto 2024 - Diciembre 2024</span>
+              <span class="modality">Presencial - Pasantía profesional</span>
             </div>
-        </section>
+          </div>
+          <ul class="experience-list">
+            <li>
+              Desarrollo de módulos web para un sistema interno de gestión de
+              activos tecnológicos de la empresa de servicios públicos,
+              utilizando <strong>Angular 17</strong> en el front-end y
+              <strong>Spring Boot</strong> en el back-end con persistencia en
+              <strong>MySQL</strong>.
+            </li>
+            <li>
+              Participación en el levantamiento de requerimientos y análisis
+              funcional del sistema legacy en Java Swing, documentando los
+              flujos de negocio para su posterior migración a plataforma web.
+            </li>
+            <li>
+              Implementación de interfaces para registro, edición y validación
+              de seriales de equipos, asegurando trazabilidad completa del ciclo
+              de vida de los activos.
+            </li>
+            <li>
+              Contenedorización de la aplicación con
+              <strong>Docker</strong> para estandarizar los ambientes de
+              desarrollo y facilitar el despliegue en diferentes entornos.
+            </li>
+            <li>
+              Colaboración con el equipo de soporte técnico para entender las
+              necesidades de los usuarios finales y traducirlas en mejoras
+              funcionales del sistema.
+            </li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Angular 17</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">REST API</span>
+          </div>
+        </div>
+      </section>
 
-        <!-- Habilidades Tecnicas -->
-        <section class="cv-section">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                Habilidades Tecnicas
-            </h2>
+      <!-- Proyectos Destacados -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Proyectos Destacados
+        </h2>
+        <div class="project-item">
+          <div class="project-header">
+            <h3>Sistema de Reservas de Eventos</h3>
+            <span class="project-date">2024</span>
+          </div>
+          <ul class="experience-list">
+            <li>
+              Diseño y desarrollo de una plataforma web para gestión de reservas
+              de eventos, con registro de usuarios, reservación de espacios y
+              administración de inscripciones.
+            </li>
+            <li>
+              Implementación de arquitectura de
+              <strong>microservicios con .NET</strong>, garantizando
+              escalabilidad y desacoplamiento de componentes.
+            </li>
+            <li>
+              Integración de <strong>Apache Kafka</strong> para sistema de
+              notificaciones en tiempo real, mejorando la experiencia del
+              usuario con alertas y recordatorios automatizados.
+            </li>
+            <li>
+              Diseño y optimización de modelo de base de datos relacional en
+              <strong>SQL Server</strong>, asegurando integridad referencial y
+              rendimiento en transacciones concurrentes.
+            </li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Angular 17</span>
+            <span class="tech-tag">.NET</span>
+            <span class="tech-tag">Microservicios</span>
+            <span class="tech-tag">Kafka</span>
+            <span class="tech-tag">SQL Server</span>
+            <span class="tech-tag">BitBucket</span>
+          </div>
+        </div>
+      </section>
 
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Lenguajes de Programacion</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag advanced">Java</span>
-                        <span class="skill-tag advanced">JavaScript</span>
-                        <span class="skill-tag advanced">TypeScript</span>
-                        <span class="skill-tag advanced">HTML5</span>
-                        <span class="skill-tag intermediate">C#</span>
-                        <span class="skill-tag intermediate">Python</span>
-                        <span class="skill-tag intermediate">PHP</span>
-                        <span class="skill-tag intermediate">Dart</span>
-                        <span class="skill-tag basic">Kotlin</span>
-                        <span class="skill-tag basic">R</span>
-                        <span class="skill-tag basic">C++</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Frameworks y Librerias</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag advanced">Angular</span>
-                        <span class="skill-tag advanced">React</span>
-                        <span class="skill-tag advanced">Spring Boot</span>
-                        <span class="skill-tag intermediate">Node.js</span>
-                        <span class="skill-tag intermediate">ASP.NET</span>
-                        <span class="skill-tag intermediate">Laravel</span>
-                        <span class="skill-tag intermediate">Flutter</span>
-                        <span class="skill-tag basic">Django</span>
-                        <span class="skill-tag basic">jQuery</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Bases de Datos</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag advanced">SQL Server</span>
-                        <span class="skill-tag advanced">MySQL</span>
-                        <span class="skill-tag intermediate">MongoDB</span>
-                        <span class="skill-tag intermediate">SQLite</span>
-                        <span class="skill-tag basic">PostgreSQL</span>
-                        <span class="skill-tag basic">Oracle</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Herramientas y DevOps</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag advanced">Git</span>
-                        <span class="skill-tag advanced">VS Code</span>
-                        <span class="skill-tag advanced">Postman</span>
-                        <span class="skill-tag intermediate">Docker</span>
-                        <span class="skill-tag intermediate">GitLab</span>
-                        <span class="skill-tag intermediate">Android Studio</span>
-                        <span class="skill-tag basic">AWS</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Metodologias</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag intermediate">Scrum</span>
-                        <span class="skill-tag intermediate">Agile</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Idiomas</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag advanced">Espanol (Nativo)</span>
-                        <span class="skill-tag intermediate">Ingles (Intermedio)</span>
-                    </div>
-                </div>
+      <!-- Habilidades Técnicas -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          Habilidades Técnicas
+        </h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Lenguajes de Programación</h4>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">Java</span>
+              <span class="skill-tag advanced">JavaScript</span>
+              <span class="skill-tag advanced">TypeScript</span>
+              <span class="skill-tag advanced">HTML5/CSS3</span>
+              <span class="skill-tag intermediate">C#</span>
+              <span class="skill-tag intermediate">Python</span>
+              <span class="skill-tag intermediate">PHP</span>
+              <span class="skill-tag intermediate">Dart</span>
+              <span class="skill-tag basic">Kotlin</span>
             </div>
-        </section>
-
-        <!-- Educacion -->
-        <section class="cv-section">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                Educacion
-            </h2>
-
-            <div class="education-item">
-                <div class="education-header">
-                    <h3>Ingenieria de Sistemas</h3>
-                    <span class="education-date">2019 - 2023</span>
-                </div>
-                <p class="institution">Universidad Popular del Cesar</p>
-                <p class="location">Valledupar, Colombia</p>
+          </div>
+          <div class="skill-category">
+            <h4>Frameworks y Librerías</h4>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">Angular</span>
+              <span class="skill-tag advanced">React</span>
+              <span class="skill-tag advanced">Spring Boot</span>
+              <span class="skill-tag intermediate">Node.js</span>
+              <span class="skill-tag intermediate">ASP.NET</span>
+              <span class="skill-tag intermediate">Laravel</span>
+              <span class="skill-tag intermediate">Flutter</span>
+              <span class="skill-tag basic">Django</span>
             </div>
-        </section>
-
-        <!-- Certificaciones -->
-        <section class="cv-section">
-            <h2 class="section-title">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-                Certificaciones
-            </h2>
-
-            <div class="certifications-grid">
-                <div class="certification-item">
-                    <h4>Google Cloud Computing Foundations</h4>
-                    <p class="cert-issuer">Google Cloud</p>
-                    <p class="cert-date">Octubre 2024</p>
-                </div>
-                <div class="certification-item">
-                    <h4>English for IT</h4>
-                    <p class="cert-issuer">NetAcad (Cisco)</p>
-                    <p class="cert-date">Junio 2024</p>
-                </div>
-                <div class="certification-item">
-                    <h4>Fundamentos de Python</h4>
-                    <p class="cert-issuer">NetAcad (Cisco)</p>
-                    <p class="cert-date">Junio 2024</p>
-                </div>
-                <div class="certification-item">
-                    <h4>Excel Avanzado</h4>
-                    <p class="cert-issuer">SENA</p>
-                    <p class="cert-date">Septiembre 2017</p>
-                </div>
+          </div>
+          <div class="skill-category">
+            <h4>Bases de Datos</h4>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">SQL Server</span>
+              <span class="skill-tag advanced">MySQL</span>
+              <span class="skill-tag intermediate">MongoDB</span>
+              <span class="skill-tag intermediate">SQLite</span>
+              <span class="skill-tag basic">PostgreSQL</span>
             </div>
-        </section>
+          </div>
+          <div class="skill-category">
+            <h4>Herramientas y DevOps</h4>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">Git</span>
+              <span class="skill-tag advanced">VS Code</span>
+              <span class="skill-tag advanced">Postman</span>
+              <span class="skill-tag intermediate">Docker</span>
+              <span class="skill-tag intermediate">GitLab</span>
+              <span class="skill-tag intermediate">Android Studio</span>
+              <span class="skill-tag basic">AWS</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Metodologías</h4>
+            <div class="skill-tags">
+              <span class="skill-tag intermediate">Scrum</span>
+              <span class="skill-tag intermediate">Agile</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h4>Idiomas</h4>
+            <div class="skill-tags">
+              <span class="skill-tag advanced">Español (Nativo)</span>
+              <span class="skill-tag intermediate">Inglés (Intermedio)</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Footer -->
-        <footer class="cv-footer">
-            <p>Referencias disponibles bajo solicitud</p>
-        </footer>
+      <!-- Educación -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+          Educación
+        </h2>
+        <div class="education-item">
+          <div class="education-header">
+            <h3>Ingeniería de Sistemas</h3>
+            <span class="education-date">2019 - 2023</span>
+          </div>
+          <p class="institution">Universidad Popular del Cesar</p>
+          <p class="location">Valledupar, Colombia</p>
+        </div>
+      </section>
+
+      <!-- Certificaciones -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg>
+          Certificaciones
+        </h2>
+        <div class="certifications-grid">
+          <div class="certification-item">
+            <h4>Google Cloud Computing Foundations</h4>
+            <p class="cert-issuer">Google Cloud</p>
+            <p class="cert-date">Octubre 2024</p>
+          </div>
+          <div class="certification-item">
+            <h4>English for IT</h4>
+            <p class="cert-issuer">NetAcad (Cisco)</p>
+            <p class="cert-date">Junio 2024</p>
+          </div>
+          <div class="certification-item">
+            <h4>Fundamentos de Python</h4>
+            <p class="cert-issuer">NetAcad (Cisco)</p>
+            <p class="cert-date">Junio 2024</p>
+          </div>
+          <div class="certification-item">
+            <h4>Excel Avanzado</h4>
+            <p class="cert-issuer">SENA</p>
+            <p class="cert-date">Septiembre 2017</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="cv-footer">
+        <p>Referencias disponibles bajo solicitud</p>
+      </footer>
     </div>
 
-    <!-- Boton para imprimir/PDF -->
-    <button class="print-btn" onclick="window.print()" title="Imprimir / Guardar como PDF">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
-        <span>Imprimir PDF</span>
+    <button
+      class="print-btn"
+      onclick="window.print()"
+      title="Imprimir / Guardar como PDF"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 9 6 2 18 2 18 9" />
+        <path
+          d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"
+        />
+        <rect width="12" height="8" x="6" y="14" />
+      </svg>
+      <span>Imprimir PDF</span>
     </button>
-</body>
+  </body>
 </html>
